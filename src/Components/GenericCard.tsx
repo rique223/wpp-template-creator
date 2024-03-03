@@ -1,5 +1,13 @@
 import InfoIcon from "@mui/icons-material/Info";
-import { Box, Card, Chip, Stack, Switch, Typography } from "@mui/material";
+import {
+    Box,
+    Card,
+    Chip,
+    Collapse,
+    Stack,
+    Switch,
+    Typography,
+} from "@mui/material";
 import { ChangeEvent, ReactNode, useState } from "react";
 
 type GenericCardProps = {
@@ -8,6 +16,7 @@ type GenericCardProps = {
     required: boolean;
     children?: ReactNode;
     sx?: Record<string, string | object>;
+    onDisable: () => void;
 };
 
 const GenericCard = ({
@@ -16,10 +25,15 @@ const GenericCard = ({
     required,
     children,
     sx,
+    onDisable,
 }: GenericCardProps) => {
     const [isEnabled, setIsEnabled] = useState(required);
 
     const handleEnableCard = (event: ChangeEvent<HTMLInputElement>) => {
+        if (!event.target.checked) {
+            onDisable();
+        }
+
         setIsEnabled(event.target.checked);
     };
 
@@ -58,7 +72,7 @@ const GenericCard = ({
                     <Switch checked={isEnabled} onChange={handleEnableCard} />
                 )}
             </Stack>
-            {isEnabled ? children : null}
+            <Collapse in={isEnabled}>{children}</Collapse>
         </Card>
     );
 };

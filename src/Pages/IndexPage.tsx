@@ -13,7 +13,11 @@ const IndexPage = () => {
         selectedImage: "",
         bodyMessage: "",
         footerText: "",
-        buttons: {},
+        buttons: {
+            button1: "",
+            button2: "",
+            button3: "",
+        },
     });
 
     return (

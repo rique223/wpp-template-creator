@@ -38,7 +38,11 @@ const UploadImage = ({
                 sx={{ width: "fit-content" }}
             >
                 Upload Image
-                <input type="file" hidden onChange={handleImageUpload} />
+                <input
+                    type="file"
+                    hidden
+                    onChange={handleImageUpload}
+                />
             </Button>
         </Stack>
     );

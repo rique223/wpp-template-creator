@@ -15,6 +15,8 @@ type SidebarBodyProps = {
     messagePreview: MessagePreviewObject;
 };
 
+type InputTypes = "selectedImage" | "bodyMessage" | "footerText" | "buttons";
+
 const SidebarBody = ({
     setMessagePreview,
     messagePreview,
@@ -22,6 +24,37 @@ const SidebarBody = ({
     const [isTipOpen, setIsTipOpen] = useState(true);
 
     const { bodyMessage, buttons } = messagePreview;
+
+    const cleanInput = (inputType: InputTypes) => {
+        const inputTypesObjects = {
+            selectedImage: () =>
+                setMessagePreview((prevState) => ({
+                    ...prevState,
+                    selectedImage: "",
+                })),
+            bodyMessage: () =>
+                setMessagePreview((prevState) => ({
+                    ...prevState,
+                    bodyMessage: "",
+                })),
+            footerText: () =>
+                setMessagePreview((prevState) => ({
+                    ...prevState,
+                    footerText: "",
+                })),
+            buttons: () =>
+                setMessagePreview((prevState) => ({
+                    ...prevState,
+                    buttons: {
+                        button1: "",
+                        button2: "",
+                        button3: "",
+                    },
+                })),
+        };
+
+        return inputTypesObjects[inputType];
+    };
 
     return (
         <>
@@ -38,6 +71,7 @@ const SidebarBody = ({
                 title="Header"
                 required={false}
                 sx={{ "&&": { mt: "0" } }}
+                onDisable={cleanInput("selectedImage")}
             >
                 <UploadImage setMessagePreview={setMessagePreview} />
                 <GenericTipCard
@@ -55,7 +89,8 @@ const SidebarBody = ({
             <GenericCard
                 icon={<FormatSizeIcon color="action" />}
                 title="Body message"
-                required={true}
+                required
+                onDisable={cleanInput("bodyMessage")}
             >
                 <OutlinedInput
                     placeholder="Write your message here"
@@ -85,27 +120,32 @@ const SidebarBody = ({
                 icon={<FormatSizeIcon color="action" />}
                 title="Footer text"
                 required={false}
+                onDisable={cleanInput("footerText")}
             />
 
             <GenericCard
                 icon={<Crop169Icon color="action" />}
                 title="Buttons"
                 required={false}
+                onDisable={cleanInput("buttons")}
             >
                 <Stack spacing="16px">
                     <ButtonInput
+                        id="button1"
                         title="Button 1"
-                        buttonText={buttons["Button 1"]}
+                        buttonText={buttons["button1"]}
                         setMessagePreview={setMessagePreview}
                     />
                     <ButtonInput
+                        id="button2"
                         title="Button 2"
-                        buttonText={buttons["Button 2"]}
+                        buttonText={buttons["button2"]}
                         setMessagePreview={setMessagePreview}
                     />
                     <ButtonInput
+                        id="button3"
                         title="Button 3"
-                        buttonText={buttons["Button 3"]}
+                        buttonText={buttons["button3"]}
                         setMessagePreview={setMessagePreview}
                     />
                 </Stack>

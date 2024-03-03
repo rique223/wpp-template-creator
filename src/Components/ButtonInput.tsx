@@ -1,9 +1,10 @@
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import { IconButton, OutlinedInput, Stack, Typography } from "@mui/material";
-import { ChangeEvent, useEffect } from "react";
+import { ChangeEvent } from "react";
 import { MessagePreviewObject } from "../definitions/MessagePreviewObject";
 
 type ButtonInputProps = {
+    id: string;
     title: string;
     buttonText: string;
     setMessagePreview: React.Dispatch<
@@ -12,6 +13,7 @@ type ButtonInputProps = {
 };
 
 const ButtonInput = ({
+    id,
     title,
     buttonText,
     setMessagePreview,
@@ -21,20 +23,10 @@ const ButtonInput = ({
             ...prevState,
             buttons: {
                 ...prevState.buttons,
-                [title]: event.target.value,
+                [id]: event.target.value,
             },
         }));
     };
-
-    useEffect(() => {
-        setMessagePreview((prevState) => ({
-            ...prevState,
-            buttons: {
-                ...prevState.buttons,
-                [title]: "",
-            },
-        }));
-    }, [setMessagePreview, title]);
 
     return (
         <Stack spacing="8px">
@@ -56,11 +48,12 @@ const ButtonInput = ({
                 placeholder="Enter text"
                 endAdornment={
                     <Typography sx={{ ml: "auto" }}>
-                        {buttonText ? buttonText.replace(" ", "").length : 0}/25
+                        {buttonText ? buttonText.length : 0}/25
                     </Typography>
                 }
                 sx={{ height: "45px" }}
                 onChange={handleButtonTextChange}
+                value={buttonText}
             />
         </Stack>
     );

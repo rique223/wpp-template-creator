@@ -9,11 +9,11 @@ const ButtonPreviewList = ({
         return null;
     }
 
-    return Object.values(buttons).map((currentButtonValue) =>
-        currentButtonValue ? (
+    return Object.keys(buttons).map((currentButtonKey) =>
+        currentButtonKey && buttons[currentButtonKey] ? (
             <ButtonPreview
-                key={currentButtonValue}
-                label={currentButtonValue}
+                key={currentButtonKey}
+                label={buttons[currentButtonKey]}
             />
         ) : null
     );
