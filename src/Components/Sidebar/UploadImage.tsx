@@ -1,6 +1,7 @@
 import { Button, MenuItem, Select, Stack, Typography } from "@mui/material";
 import { ChangeEvent, Dispatch, SetStateAction } from "react";
-import { MessagePreviewObject } from "../definitions/MessagePreviewObject";
+
+import { MessagePreviewObject } from "../../definitions/MessagePreviewObject";
 
 const UploadImage = ({
     setMessagePreview,

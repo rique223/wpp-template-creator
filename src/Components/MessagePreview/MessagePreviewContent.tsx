@@ -1,9 +1,10 @@
 import { Card, Stack, Typography } from "@mui/material";
-import SelectedImagePreview from "./SelectedImagePreview";
+
+import { MessagePreviewObject } from "../../definitions/MessagePreviewObject";
 import BodyMessagePreview from "./BodyMessagePreview";
-import FooterTextPreview from "./FooterTextPreview";
-import { MessagePreviewObject } from "../definitions/MessagePreviewObject";
 import ButtonPreviewList from "./ButtonPreviewList";
+import FooterTextPreview from "./FooterTextPreview";
+import SelectedImagePreview from "./SelectedImagePreview";
 
 const MessagePreviewContent = ({
     messagePreview,

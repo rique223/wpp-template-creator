@@ -1,14 +1,15 @@
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import { IconButton, OutlinedInput, Stack, Typography } from "@mui/material";
-import { ChangeEvent } from "react";
-import { MessagePreviewObject } from "../definitions/MessagePreviewObject";
+import { ChangeEvent, Dispatch, SetStateAction } from "react";
+
+import { MessagePreviewObject } from "../../definitions/MessagePreviewObject";
 
 type ButtonInputProps = {
     id: string;
     title: string;
     buttonText: string;
-    setMessagePreview: React.Dispatch<
-        React.SetStateAction<MessagePreviewObject>
+    setMessagePreview: Dispatch<
+        SetStateAction<MessagePreviewObject>
     >;
 };
 

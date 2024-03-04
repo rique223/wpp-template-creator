@@ -1,8 +1,9 @@
-import { Card, Stack } from "@mui/material";
 import MessageIcon from "@mui/icons-material/Message";
-import MessagePreviewHeader from "./MessagePreviewHeader";
+import { Card, Stack } from "@mui/material";
+
+import { MessagePreviewObject } from "../../definitions/MessagePreviewObject";
 import MessagePreviewContent from "./MessagePreviewContent";
-import { MessagePreviewObject } from "../definitions/MessagePreviewObject";
+import MessagePreviewHeader from "./MessagePreviewHeader";
 
 const MessagePreview = ({
     messagePreview,
@@ -27,6 +28,7 @@ const MessagePreview = ({
                     icon={<MessageIcon sx={{ fontSize: "16px" }} />}
                     title="Message Example"
                 />
+
                 <MessagePreviewContent messagePreview={messagePreview} />
             </Stack>
         </Card>

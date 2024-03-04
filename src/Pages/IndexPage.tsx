@@ -1,11 +1,10 @@
 import { Container, Stack } from "@mui/material";
+import { useState } from "react";
 
 import Header from "../Components/Header";
+import MessagePreview from "../Components/MessagePreview";
 import Navbar from "../Components/Navbar";
 import Sidebar from "../Components/Sidebar";
-
-import { useState } from "react";
-import MessagePreview from "../Components/MessagePreview";
 import { MessagePreviewObject } from "../definitions/MessagePreviewObject";
 
 const IndexPage = () => {

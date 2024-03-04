@@ -1,14 +1,15 @@
-import ImageIcon from "@mui/icons-material/Image";
-import HighlightIcon from "@mui/icons-material/Highlight";
-import FormatSizeIcon from "@mui/icons-material/FormatSize";
 import Crop169Icon from "@mui/icons-material/Crop169";
+import FormatSizeIcon from "@mui/icons-material/FormatSize";
+import HighlightIcon from "@mui/icons-material/Highlight";
+import ImageIcon from "@mui/icons-material/Image";
 import { OutlinedInput, Stack, Typography } from "@mui/material";
-import GenericCard from "./GenericCard";
-import UploadImage from "./UploadImage";
-import GenericTipCard from "./GenericTipCard";
-import ButtonInput from "./ButtonInput";
 import { Dispatch, SetStateAction, useState } from "react";
-import { MessagePreviewObject } from "../definitions/MessagePreviewObject";
+
+import { MessagePreviewObject } from "../../definitions/MessagePreviewObject";
+import ButtonInput from "./ButtonInput";
+import GenericCard from "./GenericCard";
+import GenericTipCard from "./GenericTipCard";
+import UploadImage from "./UploadImage";
 
 type SidebarBodyProps = {
     setMessagePreview: Dispatch<SetStateAction<MessagePreviewObject>>;

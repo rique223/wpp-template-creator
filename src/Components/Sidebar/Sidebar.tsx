@@ -1,14 +1,14 @@
 import { Stack } from "@mui/material";
-import SidebarHeader from "./SidebarHeader";
-import { useScrollbarStyles } from "../hooks/useScrollbarStyles";
-import { MessagePreviewObject } from "../definitions/MessagePreviewObject";
-import SidebarFooter from "./SidebarFooter";
+import { Dispatch, SetStateAction } from "react";
+
+import { MessagePreviewObject } from "../../definitions/MessagePreviewObject";
+import { useScrollbarStyles } from "../../hooks/useScrollbarStyles";
 import SidebarBody from "./SidebarBody";
+import SidebarFooter from "./SidebarFooter";
+import SidebarHeader from "./SidebarHeader";
 
 type SidebarProps = {
-    setMessagePreview: React.Dispatch<
-        React.SetStateAction<MessagePreviewObject>
-    >;
+    setMessagePreview: Dispatch<SetStateAction<MessagePreviewObject>>;
     messagePreview: MessagePreviewObject;
 };
 
