@@ -1,4 +1,5 @@
 import { Card, Stack, Typography } from "@mui/material";
+import { useMemo } from "react";
 
 import { MessagePreviewObject } from "../../definitions/MessagePreviewObject";
 import BodyMessagePreview from "./BodyMessagePreview";
@@ -13,13 +14,24 @@ const MessagePreviewContent = ({
 }) => {
     const { selectedImage, bodyMessage, footerText, buttons } = messagePreview;
 
-    const isMessagePreviewEmpty =
-        (!selectedImage || selectedImage === "") &&
-        bodyMessage.match(/^\s*$/) !== null &&
-        footerText.match(/^\s*$/) !== null &&
-        Object.values(buttons).every(
-            (button) => button.match(/^\s*$/) !== null
-        );
+    const isMessagePreviewEmpty = useMemo(
+        () =>
+            (!selectedImage || selectedImage === "") &&
+            bodyMessage.match(/^\s*$/) !== null &&
+            footerText.match(/^\s*$/) !== null &&
+            Object.values(buttons).every(
+                (button) => button.match(/^\s*$/) !== null
+            ),
+        [bodyMessage, buttons, footerText, selectedImage]
+    );
+
+    const isMediaTextContentEmpty = useMemo(
+        () =>
+            (!selectedImage || selectedImage === "") &&
+            bodyMessage.match(/^\s*$/) !== null &&
+            footerText.match(/^\s*$/) !== null,
+        [bodyMessage, footerText, selectedImage]
+    );
 
     if (isMessagePreviewEmpty)
         return (
@@ -28,11 +40,6 @@ const MessagePreviewContent = ({
                 here
             </Typography>
         );
-
-    const isMediaTextContentEmpty =
-        (!selectedImage || selectedImage === "") &&
-        bodyMessage.match(/^\s*$/) !== null &&
-        footerText.match(/^\s*$/) !== null;
 
     return (
         <Card
