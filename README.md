@@ -1,5 +1,5 @@
 # WhatsApp template creator
-This is the code for a simple WhatsApp business template creator.
+This is the code for a simple WhatsApp business message template creator.
 
 # How to run the system?
 1. Make sure to have node 20.11.1 and bun installed;
