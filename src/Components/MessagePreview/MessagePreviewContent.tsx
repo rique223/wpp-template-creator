@@ -1,4 +1,4 @@
-import { Card, Stack, Typography } from "@mui/material";
+import { Card, Stack } from "@mui/material";
 import { useMemo } from "react";
 
 import { MessagePreviewObject } from "../../definitions/MessagePreviewObject";
@@ -35,10 +35,12 @@ const MessagePreviewContent = ({
 
     if (isMessagePreviewEmpty)
         return (
-            <Typography>
-                Interact with the sidebar and your message preview will appear
-                here
-            </Typography>
+            // Could be a briefing text like this
+            // <Typography>
+            //     Interact with the sidebar and your message preview will appear
+            //     here
+            // </Typography>
+            null
         );
 
     return (

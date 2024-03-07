@@ -28,6 +28,7 @@ const Header = () => {
             width: "40px",
             backgroundColor: "#F5F5F5",
           }}
+          data-test-id="close-page-button"
         >
           <CloseIcon />
         </IconButton>

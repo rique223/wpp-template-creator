@@ -25,10 +25,10 @@ const SidebarFooter = () => {
             borderRight="1px solid #E4E5EA"
             borderTop="1px solid #E4E5EA"
         >
-            <Button variant="contained" onClick={handleSave}>
+            <Button variant="contained" onClick={handleSave} data-test-id="save-button">
                 Save
             </Button>
-            <Button variant="outlined">Delete</Button>
+            <Button variant="outlined" data-test-id="delete-button">Delete</Button>
             <Snackbar
                 open={isSnackbarOpen}
                 autoHideDuration={6000}

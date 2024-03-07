@@ -8,9 +8,8 @@ type ButtonInputProps = {
     id: string;
     title: string;
     buttonText: string;
-    setMessagePreview: Dispatch<
-        SetStateAction<MessagePreviewObject>
-    >;
+    setMessagePreview: Dispatch<SetStateAction<MessagePreviewObject>>;
+    dataTestId: string;
 };
 
 const ButtonInput = ({
@@ -18,6 +17,7 @@ const ButtonInput = ({
     title,
     buttonText,
     setMessagePreview,
+    dataTestId,
 }: ButtonInputProps) => {
     const handleButtonTextChange = (event: ChangeEvent<HTMLInputElement>) => {
         setMessagePreview((prevState) => ({
@@ -47,14 +47,11 @@ const ButtonInput = ({
             </Stack>
             <OutlinedInput
                 placeholder="Enter text"
-                endAdornment={
-                    <Typography sx={{ ml: "auto" }}>
-                        {buttonText ? buttonText.length : 0}/25
-                    </Typography>
-                }
+                endAdornment={<Typography sx={{ ml: "auto" }}>0/25</Typography>}
                 sx={{ height: "45px" }}
                 onChange={handleButtonTextChange}
                 value={buttonText}
+                data-test-id={dataTestId}
             />
         </Stack>
     );

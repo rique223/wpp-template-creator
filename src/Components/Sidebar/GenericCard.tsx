@@ -37,6 +37,24 @@ const GenericCard = ({
         setIsEnabled(event.target.checked);
     };
 
+    const renderRequired = () => {
+        if (required) {
+            return (
+                <Chip
+                    size="small"
+                    label={
+                        <Typography variant="caption" fontWeight="700">
+                            Required
+                        </Typography>
+                    }
+                    sx={{ borderRadius: "4px" }}
+                />
+            );
+        }
+
+        return <Switch checked={isEnabled} onChange={handleEnableCard} data-test-id="open-card-switch" />;
+    };
+
     return (
         <Card
             variant="outlined"
@@ -58,19 +76,7 @@ const GenericCard = ({
                     </Typography>
                     <InfoIcon color="action" sx={{ fontSize: "14px" }} />
                 </Stack>
-                {required ? (
-                    <Chip
-                        size="small"
-                        label={
-                            <Typography variant="caption" fontWeight="700">
-                                Required
-                            </Typography>
-                        }
-                        sx={{ borderRadius: "4px" }}
-                    />
-                ) : (
-                    <Switch checked={isEnabled} onChange={handleEnableCard} />
-                )}
+                {renderRequired()}
             </Stack>
             <Collapse in={isEnabled}>{children}</Collapse>
         </Card>

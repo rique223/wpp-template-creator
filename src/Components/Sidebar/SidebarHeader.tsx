@@ -10,6 +10,7 @@ const SidebarHeader = ({ title }: { title: string }) => (
                 width: "40px",
                 backgroundColor: "#F5F5F5",
             }}
+            data-test-id="close-sidebar-button"
         >
             <CloseIcon />
         </IconButton>

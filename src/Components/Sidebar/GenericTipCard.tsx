@@ -45,7 +45,7 @@ const GenericTipCard = ({
                         {!!icon && icon}
                         <Typography variant="subtitle2">{title}</Typography>
                     </Stack>
-                    <IconButton size="small" onClick={() => onClick(false)}>
+                    <IconButton size="small" onClick={() => onClick(false)} data-test-id="close-tip-button">
                         <CloseIcon />
                     </IconButton>
                 </Stack>
@@ -53,7 +53,7 @@ const GenericTipCard = ({
                     {!!text && text}
                 </Typography>
                 {cta && (
-                    <Link href={cta.ctaHref} underline="none">
+                    <Link href={cta.ctaHref} underline="none" data-test-id="tip-cta-link">
                         <Typography variant="caption">
                             {cta.ctaText}
                         </Typography>

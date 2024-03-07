@@ -24,7 +24,7 @@ const SidebarBody = ({
 }: SidebarBodyProps) => {
     const [isTipOpen, setIsTipOpen] = useState(true);
 
-    const { bodyMessage, buttons } = messagePreview;
+    const { buttons } = messagePreview;
 
     const cleanInput = (inputType: InputTypes) => {
         const inputTypesObjects = {
@@ -101,7 +101,7 @@ const SidebarBody = ({
                     fullWidth
                     endAdornment={
                         <Typography sx={{ ml: "auto", mt: "auto" }}>
-                            {bodyMessage.length}/1024
+                            0/1024
                         </Typography>
                     }
                     sx={{
@@ -114,6 +114,7 @@ const SidebarBody = ({
                             bodyMessage: event.target.value,
                         }))
                     }
+                    data-test-id="body-message-textarea"
                 />
             </GenericCard>
 
@@ -136,18 +137,21 @@ const SidebarBody = ({
                         title="Button 1"
                         buttonText={buttons["button1"]}
                         setMessagePreview={setMessagePreview}
+                        dataTestId="button1-input"
                     />
                     <ButtonInput
                         id="button2"
                         title="Button 2"
                         buttonText={buttons["button2"]}
                         setMessagePreview={setMessagePreview}
+                        dataTestId="button2-input"
                     />
                     <ButtonInput
                         id="button3"
                         title="Button 3"
                         buttonText={buttons["button3"]}
                         setMessagePreview={setMessagePreview}
+                        dataTestId="button3-input"
                     />
                 </Stack>
             </GenericCard>

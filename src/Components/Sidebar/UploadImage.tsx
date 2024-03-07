@@ -37,6 +37,7 @@ const UploadImage = ({
                 component="label"
                 variant="outlined"
                 sx={{ width: "fit-content" }}
+                data-test-id="upload-image-button"
             >
                 Upload Image
                 <input
